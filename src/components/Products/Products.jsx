@@ -24,7 +24,7 @@ const Products = () => {
           );
         })}
       </div>
-      <div className="self-center m-3">pagination ... here</div>
+      {/* <div className="self-center m-3">pagination ... here</div> */}
     </>
   );
 };
