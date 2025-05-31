@@ -9,7 +9,6 @@ import { Signup } from "./components/User/Signup";
 import About from "./components/About";
 import Footer from "./components/Footer";
 import ProductDetails from "./components/Products/ProductDetails";
-import CartCpy from "./components/Cart/CartCpy";
 import Greeting from "./components/Cart/Greeting";
 
 function App() {
@@ -21,7 +20,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/products" element={<Products />} />
         <Route path="/products/:id" element={<ProductDetails />} />
-        <Route path="/cart" element={<Cart />} />
+        <Route path="/checkout" element={<Cart />} />
         <Route path="/greeting" element={<Greeting />} />
         {/* <Route path="/cart" element={<CartCpy />} /> */}
         <Route path="/login" element={<Login />} />

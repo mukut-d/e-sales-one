@@ -1,4 +1,33 @@
+import { useContext, useEffect, useState } from "react";
+import { ProductContext } from "../../store/products";
+
+const baseUrl = "http://localhost:8000";
+
 const Greeting = () => {
+  const { orderId } = useContext(ProductContext);
+  const [orderDetails, setOrderDetails] = useState({});
+  // call get api to get all the order summary details
+  // and load it in the database.
+
+  // const orderId = "683a1954baba48eb7b356e6e";
+  useEffect(() => {
+    const fetchOrderDetails = async () => {
+      try {
+        const response = await fetch(baseUrl + `/order/${orderId}`);
+        const data = await response.json();
+
+        setOrderDetails(data);
+      } catch (error) {
+        console.log("Failed to fetch order Details " + error);
+      }
+    };
+
+    fetchOrderDetails();
+  }, []);
+
+  console.log("order id " + orderId);
+  console.log("order details " + JSON.stringify(orderDetails, null, 2));
+
   return (
     <>
       <div className="flex">
@@ -9,7 +38,9 @@ const Greeting = () => {
 
             <div className="p-2">
               <label>Full Name</label>
-              <div className="w-full bg-gray-100 p-2 my-1">John Doe</div>
+              <div className="w-full bg-gray-100 p-2 my-1">
+                {orderDetails?.order?.shippingAddress?.fullname}
+              </div>
             </div>
 
             <div className="p-2">
@@ -20,17 +51,27 @@ const Greeting = () => {
             </div>
             <div className="p-2">
               <label>Phone Number</label>
-              <div className="w-full bg-gray-100 p-2 my-1">+91 9142324082</div>
+              <div className="w-full bg-gray-100 p-2 my-1">
+                {orderDetails?.order?.shippingAddress?.phoneNo}
+              </div>
             </div>
 
             <div className="p-2">
               <label>Address</label>
-              <div className="w-full bg-gray-100 p-2 my-1">John Doe</div>
+              <div className="w-full bg-gray-100 p-2 my-1">
+                {orderDetails?.order?.shippingAddress?.fullname}
+              </div>
             </div>
             <div className="p-2">
-              <div className="w-full bg-gray-100 p-2 my-1">Ranchi</div>
-              <div className="w-full bg-gray-100 p-2 my-1">Jharkhand</div>
-              <div className="w-full bg-gray-100 p-2 my-1">834001</div>
+              <div className="w-full bg-gray-100 p-2 my-1">
+                {orderDetails?.order?.shippingAddress?.city}
+              </div>
+              <div className="w-full bg-gray-100 p-2 my-1">
+                {orderDetails?.order?.shippingAddress?.state}
+              </div>
+              <div className="w-full bg-gray-100 p-2 my-1">
+                {orderDetails?.order?.shippingAddress?.fullname}
+              </div>
             </div>
           </div>
         </div>
@@ -50,15 +91,15 @@ const Greeting = () => {
               <div className="flex justify-between mb-6">
                 <div className="flex-1">
                   <p className="text-sm mb-2">Date</p>
-                  <p className="font-medium">02 Oct 2023</p>
+                  {/* <p className="font-medium">{`${new Date(orderDate)}`}</p> */}
                 </div>
                 <div className="flex-1 border-x border-white/30 px-4">
                   <p className="text-sm mb-2">Order Number</p>
-                  <p className="font-medium">0215-451512152</p>
+                  <p className="font-medium">={`${orderId}`}</p>
                 </div>
                 <div className="flex-1 pl-4">
                   <p className="text-sm mb-2">Payment Method</p>
-                  <p className="font-medium">Cash</p>
+                  <p className="font-medium">ONLINE</p>
                 </div>
               </div>
             </div>

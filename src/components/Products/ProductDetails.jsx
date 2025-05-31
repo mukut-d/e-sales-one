@@ -3,14 +3,19 @@ import { homeProducts } from "../../constants/data";
 import Ratings from "./Ratings";
 import { images } from "../../constants/images";
 import { useState } from "react";
+import { useContext } from "react";
+import { ProductContext } from "../../store/products";
 
 const ProductDetails = () => {
+  const [product, setProduct] = useState({});
   const [quantity, setQuantity] = useState(1);
   const [selectedColor, setSelectedColor] = useState("silver");
-  const [selectedSize, setSelectedSize] = useState("11");
+  const { saveProductDetails } = useContext(ProductContext);
+  // const [selectedSize, setSelectedSize] = useState("11");
   const { id } = useParams();
   const products = homeProducts.filter((item) => item.id === +id)[0];
-  console.log("id " + JSON.stringify(products, null, 2));
+  // console.log("product " + JSON.stringify(products, null, 2));
+
   const navigate = useNavigate();
 
   const goBackHandler = () => {
@@ -18,7 +23,16 @@ const ProductDetails = () => {
   };
 
   const cartNavigationHandler = () => {
-    navigate(`/cart`);
+    const { name, id, price } = products;
+    saveProductDetails({
+      name,
+      id,
+      price,
+      quantity,
+      color: selectedColor,
+    });
+
+    navigate(`/checkout`);
   };
 
   const colors = [
@@ -26,7 +40,7 @@ const ProductDetails = () => {
     { id: "silver", name: "Silver", class: "bg-[#E6AE87]" },
   ];
 
-  const sizes = ["8", "9", "10", "11", "12", "13", "14"];
+  // const sizes = ["8", "9", "10", "11", "12", "13", "14"];
 
   const decrementQuantity = () => {
     if (quantity > 1) {
@@ -37,6 +51,8 @@ const ProductDetails = () => {
   const incrementQuantity = () => {
     setQuantity(quantity + 1);
   };
+
+  // console.log("product details " + JSON.stringify(product, null, 2));
 
   return (
     <div className="flex flex-col ">
