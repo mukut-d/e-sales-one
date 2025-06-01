@@ -1,7 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import { ProductContext } from "../../store/products";
 
-const baseUrl = "http://localhost:8000";
+// const baseUrl = "http://localhost:8000";
+const baseUrl = "https://e-sales-one-backend.onrender.com";
 
 const Greeting = () => {
   const { orderId } = useContext(ProductContext);
