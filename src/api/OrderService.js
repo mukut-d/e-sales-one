@@ -2,6 +2,7 @@
 const baseurl = "https://e-sales-one-backend.onrender.com";
 
 export const createOrder = async (orderData) => {
+  console.log("oder data before sending " + JSON.stringify(orderData, null, 2));
   try {
     const response = await fetch(`${baseurl}/create`, {
       method: "POST",

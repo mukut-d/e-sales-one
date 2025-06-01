@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { images } from "../../constants/images";
 import { useForm } from "react-hook-form";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { ProductContext } from "../../store/products";
 import { createOrder } from "../../api/OrderService";
 import toast, { Toaster } from "react-hot-toast";
@@ -38,7 +38,7 @@ const Cart = () => {
       address,
       phoneNo,
       email,
-      status,
+      status: status,
       ...productDetails,
     });
 
@@ -221,7 +221,7 @@ const Cart = () => {
                 htmlFor="dropdown"
                 className="block mb-2 text-sm font-medium text-gray-700"
               >
-                Choose an option:
+                Choose an Status option:
               </label>
               <select
                 id="dropdown"
