@@ -38,7 +38,7 @@ const Cart = () => {
       address,
       phoneNo,
       email,
-      status: status,
+      status: Number(status),
       ...productDetails,
     });
 
