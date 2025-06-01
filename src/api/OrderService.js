@@ -6,7 +6,7 @@ export const createOrder = async (orderData) => {
     const response = await fetch(`${baseurl}/create`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ ...orderData, status: 1 }),
+      body: JSON.stringify({ ...orderData }),
     });
     const result = await response.json();
 
