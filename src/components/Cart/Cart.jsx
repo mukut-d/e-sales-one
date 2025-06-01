@@ -49,8 +49,7 @@ const Cart = () => {
 
     if (status == 2) {
       notifyError();
-    }
-    if (status == 3) {
+    } else if (status == 3) {
       notifyGatewayError();
     } else {
       // ✅ Show toast then redirect
