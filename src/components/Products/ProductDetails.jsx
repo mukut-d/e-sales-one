@@ -14,7 +14,6 @@ const ProductDetails = () => {
   // const [selectedSize, setSelectedSize] = useState("11");
   const { id } = useParams();
   const products = homeProducts.filter((item) => item.id === +id)[0];
-  // console.log("product " + JSON.stringify(products, null, 2));
 
   const navigate = useNavigate();
 
@@ -51,8 +50,6 @@ const ProductDetails = () => {
   const incrementQuantity = () => {
     setQuantity(quantity + 1);
   };
-
-  // console.log("product details " + JSON.stringify(product, null, 2));
 
   return (
     <div className="flex flex-col ">

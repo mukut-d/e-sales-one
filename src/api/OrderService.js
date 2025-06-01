@@ -1,7 +1,6 @@
 const baseurl = "http://localhost:8000";
 
 export const createOrder = async (orderData) => {
-  // console.log("orderData " + JSON.stringify(orderData, null, 2));
   try {
     const response = await fetch(`${baseurl}/create`, {
       method: "POST",

@@ -25,9 +25,6 @@ const Greeting = () => {
     fetchOrderDetails();
   }, []);
 
-  console.log("order id " + orderId);
-  console.log("order details " + JSON.stringify(orderDetails, null, 2));
-
   return (
     <>
       <div className="flex">

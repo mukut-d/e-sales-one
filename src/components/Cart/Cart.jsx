@@ -25,24 +25,9 @@ const Cart = () => {
     setStatus(e.target.value);
   };
 
-  // console.log(
-  //   "product details in checkout " + JSON.stringify(productDetails, null, 2)
-  // );
-
   const total = productDetails?.quantity * productDetails?.price;
 
   const onSubmit = async (data) => {
-    // console.log("Order Details", data);
-
-    if (status == 2) {
-      notifyError();
-      return;
-    }
-    if (status == 3) {
-      notifyGatewayError();
-      return;
-    }
-
     const { fullname, email, phoneNo, address, city, state, zip } = data;
 
     const result = await createOrder({
@@ -57,19 +42,24 @@ const Cart = () => {
       ...productDetails,
     });
 
-    console.log("response from create  " + JSON.stringify(result, null, 2));
-
     // call the orderSummary API here to save it to database.
     if (result?.order?._id) {
       saveOrderId(result?.order?._id);
     }
 
-    // ✅ Show toast then redirect
-    notifySuccess();
+    if (status == 2) {
+      notifyError();
+    }
+    if (status == 3) {
+      notifyGatewayError();
+    } else {
+      // ✅ Show toast then redirect
+      notifySuccess();
+    }
 
     // ✅ Wait 2.5s, then redirect
     setTimeout(() => {
-      navigate("/greeting");
+      navigate(status == 1 ? "/greeting" : "/products");
     }, 2500); // Give toast time to show
     // error, success, warn toast
   };
@@ -77,8 +67,6 @@ const Cart = () => {
   const goBackHandler = () => {
     navigate(`/products`);
   };
-
-  console.log(status);
 
   return (
     <div className="flex flex-col flex-1">

@@ -20,8 +20,6 @@ const ProductProvider = ({ children }) => {
     setOrderId(orderId);
   };
 
-  console.log("order id " + orderId);
-
   const ctxValue = {
     orderId: orderId,
     productDetails: productDetails,

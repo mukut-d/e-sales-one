@@ -23,7 +23,6 @@ const CartCpy = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log("Order Details:", data);
     alert("Order placed successfully!");
     navigate("/products");
   };
