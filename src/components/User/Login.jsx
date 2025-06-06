@@ -8,7 +8,7 @@ const notify = () => toast.success("Here is your toast.");
 const notifyError = () => toast.error("Here is your toast.");
 
 const Login = () => {
-  const firebaseAuth = getAuth(app);
+  // const firebaseAuth = getAuth(app);
   const provider = new GoogleAuthProvider();
 
   const loginWithHandler = async () => {
