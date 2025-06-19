@@ -14,38 +14,6 @@ A 3-page simulated eCommerce experience built to demonstrate end-to-end purchase
 
 ## 📑 Project Structure
 
-# 🛍️ Mini eCommerce Flow
-
-A 3-page simulated eCommerce experience built to demonstrate end-to-end purchase flow including:
-
-- Product Selection
-- Secure Checkout
-- Transaction Simulation (Approved / Declined / Failed)
-- Confirmation Email via Mailtrap
-- Persistent Order Storage
-
-> 🔗 **Live Demo:** [Click here to try it out](https://your-deployed-site-link.com)
-
----
-
-## 📑 Project Structure
-
-# 🛍️ Mini eCommerce Flow
-
-A 3-page simulated eCommerce experience built to demonstrate end-to-end purchase flow including:
-
-- Product Selection
-- Secure Checkout
-- Transaction Simulation (Approved / Declined / Failed)
-- Confirmation Email via Mailtrap
-- Persistent Order Storage
-
-> 🔗 **Live Demo:** [Click here to try it out](https://your-deployed-site-link.com)
-
----
-
-## 📑 Project Structure
-
 ├── client/ # Frontend (React or Next.js)
 │ ├── pages/ # Landing, Checkout, Thank You
 │ ├── components/ # UI Components
