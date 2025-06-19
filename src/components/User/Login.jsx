@@ -8,10 +8,10 @@ const notify = () => toast.success("Here is your toast.");
 const notifyError = () => toast.error("Here is your toast.");
 
 const Login = () => {
-  // const firebaseAuth = getAuth(app);
+  const firebaseAuth = getAuth(app);
   const provider = new GoogleAuthProvider();
 
-  const loginWithHandler = async () => {
+  const loginWithGoogleHandler = async () => {
     await signInWithPopup(firebaseAuth, provider).then((userCred) => {
       firebaseAuth.onAuthStateChanged((cred) => {
         if (cred) {
@@ -43,7 +43,10 @@ const Login = () => {
           <div className="px-2">Or</div>
           <div className="h-0.5 w-[50%] bg-gray-400"></div>
         </div>
-        <button className="button1 self-center" onClick={loginWithHandler}>
+        <button
+          className="button1 self-center"
+          onClick={loginWithGoogleHandler}
+        >
           <img src={googleImg} alt="google icon" width={25} height={25} />
         </button>
       </div>
