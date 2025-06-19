@@ -8,7 +8,7 @@ A 3-page simulated eCommerce experience built to demonstrate end-to-end purchase
 - Confirmation Email via Mailtrap
 - Persistent Order Storage
 
-> 🔗 **Live Demo:** [Click here to try it out](https://your-deployed-site-link.com)
+> 🔗 **Live Demo:** [Click here to try it out](https://e-sales-one-roan.vercel.app/products)
 
 ---
 
