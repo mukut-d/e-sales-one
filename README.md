@@ -15,16 +15,18 @@ A 3-page simulated eCommerce experience built to demonstrate end-to-end purchase
 ## 📑 Project Structure
 
 ├── client/ # Frontend (React or Next.js)
-│ ├── pages/ # Landing, Checkout, Thank You
-│ ├── components/ # UI Components
+│ ├── pages/ # Landing, Checkout, Thank You pages
+│ ├── components/ # Reusable UI Components
 │ └── utils/ # Helper functions
+│
 ├── server/ # Backend (Node.js + Express)
-│ ├── routes/ # API Routes
-│ ├── models/ # MongoDB Models
-│ └── controllers/ # Business Logic
-├── .env # Environment Variables
-├── README.md # This file
-└── package.json
+│ ├── routes/ # API Route definitions
+│ ├── models/ # MongoDB Mongoose Models
+│ └── controllers/ # Business logic and route handlers
+│
+├── .env # Environment variables (API keys, DB URIs)
+├── README.md # Project documentation
+└── package.json # Project metadata and dependencies
 
 ---
 
